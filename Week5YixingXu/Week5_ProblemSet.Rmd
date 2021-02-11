@@ -80,6 +80,8 @@ glimpse(anxiety_data)
 
 ### (a) Construct boxplots of `anxiety_score` for each type of test. Write 2-3 sentences comparing the distributions of anxiety scores for the two types of test.
 
+The median anxiety score for those who reported high social media usage is higher than the median anxiety score for those with low social media usage. Also, the variability or range of anxiety scores for those who reported low social media usages is larger/wider than the distribution of the scores for those with high social media usage.
+
 ```{r, fig.height=2, fig.width=3.5}
 
 anxiety_data %>% ggplot(aes(x = social_media_usage, y = anxiety_score)) + 
