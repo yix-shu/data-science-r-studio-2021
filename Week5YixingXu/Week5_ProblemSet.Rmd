@@ -1,6 +1,6 @@
 ---
 title: "STA130H1F -- Winter 2021"
-author: "S.Caetano & N. Moon"
+author: "S.Caetano & N. Moon Yixing Xu"
 subtitle: Week 5 Problem Set
 output:
   pdf_document: default
@@ -95,14 +95,16 @@ anxiety_data %>% ggplot(aes(x = social_media_usage, y = anxiety_score)) +
 
 (i) State the hypotheses you are testing (be sure to define any parameters you refer to).
 
-The null hypothesis is there is a real difference in anxiety levels between high and low social media usages
+The null hypothesis is there is no median difference in anxiety levels between high and low social media usages
 
-The alternative hypothesis is there is no real difference in anxiety levels between high and low social media usages.
+The alternative hypothesis is there is a median difference in anxiety levels between high and low social media usages.
 
 We will use a significance level of 0.05 to assess this data.
 
 
 (ii) Look at the code below and write a few sentences explaining what the code inside the for loop is doing and why.
+
+The code below is a predicted histogram of the median differences in anxiety levels between high and low social media usages that we might see in samples of size 46 there is a real difference.
 
 ```{r}
 # Note: including the .groups="drop" option in summarise() will suppress a friendly 
@@ -142,11 +144,9 @@ p_value
 ```
 
 
-
-
-
 (iii) Write a few sentences summarizing your conclusions. Be sure to interpret the p-value carefully and to clearly address the research question.
 
+Since the p-value of 0.009 is less than our significance level of 0.05, we will reject our null hypothesis that there is not a median difference in anxiety levels and accept the alternative hypothesis that there is a median difference in anxiety levels between low and high social media usages.
 
 \newpage
 ## [Question 3]  
@@ -163,38 +163,72 @@ The code below creates a tidy data frame for this problem, using the R command `
 ```{r}
 library(tidyverse)
 
-data <- tibble(group=c(rep("airbag",10541),rep("no_airbag",9867)),
+data2 <- tibble(group=c(rep("airbag",10541),rep("no_airbag",9867)),
                         outcome=c(rep("dead",45), rep("alive",10541-45), 
                                   rep("dead",62), rep("alive",9867-62)))
+
+glimpse(data2)
 ```
 
 ### (a) State appropriate hypotheses to compare the proportions of deaths in cars with and without airbags. Be sure to define any parameters you refer to in your hypotheses.
 
+The null hypothesis is that there is no difference in death rates/proportions between passengers in cars with airbags and cars without airbags.
 
+The alternative hypothesis is that there is a difference in death rates/proportions between passengers in cars with airbags and cars without airbags.
 
 
 ### (b) Carry out a hypothesis test for the hypotheses stated in part (a).
 
 ```{r}
-set.seed(523) # Replace the number in the parentheses with the 1st, 3rd, and 5th
+set.seed(103) # Replace the number in the parentheses with the 1st, 3rd, and 5th
 # digits in your student number.
+
+repetitions <- 1000
+sim_values <- rep(NA, repetitions) #replicates numeric values 
+#for a specific number of times
 ```
 
 ```{r}
+test_stat2 <- data2 %>% group_by(group) %>%
+  summarise(n = n(), deaths = sum(outcome == "dead"),
+            prop = (deaths/n))%>%
+  summarise(val = diff(prop))
+test_stat2 <- as.numeric(test_stat2)
+
+for (i in 1:repetitions){
+  simdata2 <- data2 %>% mutate(group = sample(group))
+  
+  sim_value1 <- simdata2 %>% 
+    group_by(group) %>%
+    summarise(n = n(), deaths = sum(outcome == "dead"), 
+              prop = (deaths/n))%>%
+    summarise (val = diff(prop)) 
+  
+  sim_values[i] <- as.numeric(sim_value1)
+}
+
+sim2 <- tibble(diff = sim_values)
+sim2 %>% ggplot(aes(x= diff)) +
+  geom_histogram(binwidth = 0.001, color = "black", fill = "brown") 
+
+extremes <- sim2 %>%
+  filter(abs(diff) >= abs(test_stat2)) %>%
+  summarise(n())
+p_val <- as.numeric(extremes/repetitions)
+p_val
+
 
 ```
-
-
 
 
 
 ### (c) Based on your answer in part (b), would you reject the null hypothesis at the 0.1 significance level?
 
-
+Since I got a p value of 0.049, which is smaller than the significance level of 0.1, I will have to reject the null hypothesis. 
 
 ### (d) Based on your answer in part (c), what kind of error did you possibly make?
 
-
+I could possibly be making a type I error, where I reject the null hypothesis even though the null hypothesis is true.
 
 \newpage
 ### [Question 4] 
