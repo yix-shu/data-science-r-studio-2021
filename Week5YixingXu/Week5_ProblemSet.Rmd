@@ -239,18 +239,52 @@ For each of the following scenarios, state appropriate hypotheses $H_0$ and $H_A
 
 ### (a) A health survey asked individuals to report the number of times they exercised each week. Researchers were interested in determining if the proportion of individuals who exercised at least 100 minutes per week differed between people who live in the condos vs people who do not live in condos.
 
+$H_0: p - p_0 = 0$
 
+The null hypothesis is that there is no difference in the proportion of individuals who exercised at least 100 minutes per week differed between people who live in the condos vs people who do not live in condos. 
+
+$H_A: p - p_0 \neq 0$
+
+The alternative hypothesis is that there is a difference in the proportion of individuals who exercised at least 100 minutes per week differed between people who live in the condos vs people who do not live in condos. 
+
+, where $p$ is the proportion of individuals who exercised at least 100 minutes per week and live in condos, and $p_0$ is the proportion of individuals who exercised at least 100 minutes per week and did not live in condos.
 
 ### (b) A study was conducted to examine whether a baby is born prematurely/early (i.e., before their due date) to whether or not the baby's mother smoked while she was pregnant.
 
+$H_0: p - p_0 = 0$
+
+The null hypothesis is that there is no difference between the proportion of babies who are born prematurely when the baby's mother smoked while pregnant and when a baby's mother did not smoke while pregnant.
+
+$H_A: p - p_0 \neq 0$
+
+The alternative hypothesis is that there is a difference between the proportion of babies who are born prematurely when the baby's mother smoked while pregnant and when a baby's mother did not smoke while pregnant.
+
+, where $p$ is the proportion of babies born prematurely when the baby's mother smoked while she was pregnant, and $p_0$ is proportion of babies born prematurely when the baby's mother did not smoke while she was pregnant.
 
 
 ### (c) Nintendo is interested in whether or not their online advertisements are working. They record whether or not a user had seen an ad on a given day and their amount of spending on Nintendo products in the next 48 hours. They are interested in determining if there is an association between whether or not the user say an ad and their expenditures.
 
+$H_0: \mu_1 - \mu_2 = 0$ 
+
+The null hypothesis is that there is no difference between the average amount spent on Nintendo products within 48 hours of seeing an ad vs not seeing an ad.
+
+$H_A: \mu_1 - \mu_2 \neq 0$
+
+The alternative hypothesis is that there is a difference between the average amount spent on Nintendo products within 48 hours of seeing an ad vs not seeing an ad.
+
+, where $\mu_1$ is the average amount of spending on Nintendo products for a user within 48 hours of seeing an ad and $\mu_2$ is the average amount of spending on Nintendo products within 48 hours if the user did not see an ad.
 
 ### (d) Based on results from a survey of graduates from the University of Toronto, we would like to compare the median salaries of graduates from the statistics and graduates of mathematics programs.
 
+$H_0: m_1 - m_2 = 0$ 
 
+The null hypothesis is that there is no difference between the median salaries of graduates from the statistics and graduates of mathematics programs.
+
+$H_A: m_1 - m_2 \neq 0$
+
+The alternative hypothesis is that there is a difference between the median salaries of graduates from the statistics and graduates of mathematics programs.
+
+, where $m_1$ is the median salaries of graduates from statistics programs and $m_2$ is median salaries of graduates from mathematics programs.
 
 \newpage
 
@@ -292,9 +326,12 @@ Write or say a short summary of ONE of the following studies. A summary *must* i
 
 (d) A team of researchers were interested in understanding millennials’ views regarding housing affordability in Toronto. The team interviewed 850 millennials currently living in Toronto. 84% reported that they felt housing prices were unaffordable in the city. Suppose the researchers were interested in testing whether this proportion was different from a study published last year, which found that 92% of millennials reported that housing costs were unaffordable. The researchers reported a p-value of 0.023. 
 
- 
-
- 
+  
+  This study is a two-sample hypothesis test that compares the proportion of millennials in Toronto who believe housing prices are unaffordable this year vs last year. The null hypothesis is that there is no difference in the proportion of millennials in Toronto who believe housing prices are unaffordable this year vs last year. The alternative hypothesis is that there is a difference in the proportion of millennials in Toronto who believe housing prices are unaffordable this year vs last year. 
+  
+  The test statistic is the difference of 8% or 0.08 from the samples in the studies conducted by the team of researchers this year and last year. Last year, 92% of Toronto millennials found housing unaffordable, as opposed to 84% this year. What the researchers concluded was that, since their p-value of 0.023 is less than the significance level of 0.05, there was convincing evidence to reject the null hypothesis and accept the alternative hypothesis that there indeed is a difference in the proportions of Toronto millennials who find housing unaffordable since last year.
+  
+  However, it is reasonable to acknowledge that there is a possibility of a Type I error, because we may have rejected the null hypothesis when we should have accepted it. Also, we do not know much about the sample size of last year's study, nor do we know where, in Toronto, the team of researchers conducted their study last year and this year. The area or neighborhoods in Toronto in which these studies were conducted could play a major role in the difference in proportions.
 
 (e) Suppose a drug company was interested in testing a new weight-loss drug. They enrolled 20,000 participants and assigned 10,000 to take their new drug, SlimX, and 10,000 to take a placebo. The researchers found that over 2 months, participants who took SlimX lost, on average, 5 lbs. In comparison, the control group lost 4.5 lbs during the same time. The researchers reported a p-value of <0.0001. 
 
